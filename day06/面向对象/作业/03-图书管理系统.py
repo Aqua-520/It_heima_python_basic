@@ -53,6 +53,7 @@ class Book:
         self.price = price
         self.stock = stock
 
+
 # 2.2 BookSystem（图书管理系统类）
 #     - 类属性：system_name（系统名称）、system_version（系统版本号）
 #     - 实例属性：book_list（用于存放所有图书对象的列表）
@@ -74,12 +75,13 @@ class BookSystem:
         self.book_list = []
 
     # 判断某本书是否存在于数据库中
-    def book_is_in_database(self,name):
+    def book_is_in_database(self, name):
         for book in self.book_list:
             if book.title == name:
                 return book
 
         return None
+
     # 收集书本信息的函数
     def get_book_info(self):
         author = input('请输入书本作者').strip()
@@ -96,8 +98,7 @@ class BookSystem:
             return False
 
         # 返回元组参数
-        return author,price,stock
-
+        return author, price, stock
 
     # 新增
     def add_book(self):
@@ -110,15 +111,30 @@ class BookSystem:
             return
 
         # 不存在则开始存储,收集书本信息
-        # 调用收集信息的方法并解包
-        author, price, stock = self.get_book_info()
+        info = self.get_book_info()
+
+        # 判断是否收集成功（如果返回 False，说明校验未通过，直接 return 结束方法）
+        if info is False:
+            return
+
+        # 将书籍直接解包
+        author, price, stock = info
         # 创建书本对象
-        book_obj = Book(book_name,author,price,stock)
+        book_obj = Book(book_name, author, price, stock)
         # 将对象推入数组
         self.book_list.append(book_obj)
 
-    def update_book
-    def delete_book
-    def query_book
-    def list_books_log
+    def update_book(self):
+        pass
+
+    def delete_book(self):
+        pass
+
+    def query_book(self):
+        pass
+
+    def list_books_log(self):
+        pass
+
     def run(self):
+        pass
