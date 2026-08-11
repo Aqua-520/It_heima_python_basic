@@ -5,6 +5,7 @@ from Book import Book
 from Member import Member
 from NormalMember import NormalMember
 from VipMember import VipMember
+import json
 
 
 # 定义图书管理系统
@@ -29,24 +30,54 @@ class LibrarySystem:
     # 初始化函数
     def __mock_fn(self):
         # 图书字典
-        book_dict: dict[str, Book] = {
-            # 直接用book类创建了书籍保存进了图书管理系统
-            '1001': Book('1001', 'Python 教程', 'Python', 5),
-            '1002': Book('1002', 'C++ 教程', 'C++', 3),
-            '1003': Book('1003', 'Java 教程', 'Java', 2),
-            '1004': Book('1004', 'C 教程', 'C', 1),
-            '1005': Book('1005', 'JavaScript 教程', 'JavaScript', 4),
-        }
-        member_dict: dict[str, Member] = {
-            # 这里直接用类创建对象进行保存了
-            'N001': NormalMember(member_id='N001', name='张三', password='668001'),
-            'N002': NormalMember(member_id='N002', name='李四', password='668002'),
-            'N003': NormalMember(member_id='N003', name='王五', password='668003'),
-            'V001': VipMember(member_id='V001', name='赵六', password='669001', vip_level=1),
-            'V002': VipMember(member_id='V002', name='孙七', password='669002', vip_level=2),
-            'V003': VipMember(member_id='V003', name='周八', password='669003', vip_level=3),
-            'V004': VipMember(member_id='V004', name='吴九', password='669004', vip_level=4),
-        }
+        # book_dict: dict[str, Book] = {
+        #     # 直接用book类创建了书籍保存进了图书管理系统
+        #     '1001': Book('1001', 'Python 教程', 'Python', 5),
+        #     '1002': Book('1002', 'C++ 教程', 'C++', 3),
+        #     '1003': Book('1003', 'Java 教程', 'Java', 2),
+        #     '1004': Book('1004', 'C 教程', 'C', 1),
+        #     '1005': Book('1005', 'JavaScript 教程', 'JavaScript', 4),
+        # }
+        # member_dict: dict[str, Member] = {
+        #     # 这里直接用类创建对象进行保存了
+        #     'N001': NormalMember(member_id='N001', name='张三', password='668001'),
+        #     'N002': NormalMember(member_id='N002', name='李四', password='668002'),
+        #     'N003': NormalMember(member_id='N003', name='王五', password='668003'),
+        #     'V001': VipMember(member_id='V001', name='赵六', password='669001', vip_level=1),
+        #     'V002': VipMember(member_id='V002', name='孙七', password='669002', vip_level=2),
+        #     'V003': VipMember(member_id='V003', name='周八', password='669003', vip_level=3),
+        #     'V004': VipMember(member_id='V004', name='吴九', password='669004', vip_level=4),
+        # }
+        """
+        通过文件读写方式来进行数据导入
+        :return: dict 数据
+        """
+        book_dict = {}
+        member_dict = {}
+
+        # book的书籍导入
+        with open('./data/books.json', 'r', encoding='utf-8') as file:
+            # 获取图书列表
+            temp_book_list = json.load(file)
+            # 组装字典
+            for book_item in temp_book_list:
+                book_dict[book_item['编号']] = Book(book_item['编号'], book_item['标题'], book_item['作者'],
+                                                    book_item['数量'])
+
+        # 会员信息导入
+        with open('./data/members.json', 'r', encoding='utf-8') as file:
+            # 获取会员信息
+            temp_member_list = json.load(file)
+
+            for member_item in temp_member_list:
+                # if判断是哪个会员
+                if member_item['id'].startswith('N'):
+                    member_dict[member_item['id']] = NormalMember(
+                        member_item['id'], member_item['name'], member_item['password'])
+                elif member_item['id'].startswith('V'):
+                    member_dict[member_item['id']] = VipMember(
+                        member_item['id'], member_item['name'], member_item['password'], member_item["level"])
+
         return book_dict, member_dict
 
     #  1. 借阅图书  2. 归还图书  3. 查看用户借阅   4. 退出系统
@@ -139,20 +170,25 @@ class LibrarySystem:
                 print("-" * 50)
                 # 收集用户输入
                 choice = input(f'尊敬的{self.current_member.name},请输入您想进行的操作')
-                match choice:
-                    case '1':
-                        self.handle_borrow_book()
-                    case '2':
-                        self.handle_return_book()
-                    case '3':
-                        self.show_current_borrow_list()
-                    case '4':
-                        self.show_book_database()
-                    case "5":
-                        print('欢迎下次使用')
-                        return
-                    case _:
-                        print('输入非法,请重新输入')
+                # 用户输入可能会出现bug,在这里写异常捕获保证代码健壮性
+                try:
+                    match choice:
+                        case '1':
+                            self.handle_borrow_book()
+                        case '2':
+                            self.handle_return_book()
+                        case '3':
+                            self.show_current_borrow_list()
+                        case '4':
+                            self.show_book_database()
+                        case "5":
+                            print('欢迎下次使用')
+                            return
+                        case _:
+                            print('输入非法,请重新输入')
+                except Exception as e:
+                    print(f'程序异常,异常原因是:{e}')
+                    print('放在用户输入这里是因为,如果出现异常,不让异常代码打断while循环的执行')
 
 
 if __name__ == "__main__":
