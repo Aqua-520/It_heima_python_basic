@@ -1,0 +1,50 @@
+[
+  {
+    "id": "N001",
+    "title": "Python入门",
+    "author": "龟叔",
+    "publisher": "人民大学出版社",
+    "total_pages": 561,
+    "price": 38.8
+  },
+  {
+    "id": "N002",
+    "title": "LangChain进阶",
+    "author": "利彭斯",
+    "publisher": "北京通讯出版社",
+    "total_pages": 342,
+    "price": 89.9
+  },
+  {
+    "id": "N003",
+    "title": "LangGraph",
+    "author": "王林",
+    "publisher": "浙江大学出版社",
+    "total_pages": 453,
+    "price": 69.9
+  },
+  {
+    "id": "N004",
+    "title": "Agent Skills实战",
+    "author": "虎咆",
+    "publisher": "教育出版社",
+    "total_pages": 439,
+    "price": 59.8
+  },
+  {
+    "id": "N005",
+    "title": "MCP-Servers指南",
+    "author": "韩立",
+    "publisher": "国家图书出版社",
+    "total_pages": 328,
+    "price": 65.5
+  },
+  {
+    "id": "N006",
+    "title": "C++从入门到大神",
+    "author": "李慕婉",
+    "publisher": "清华大学出版社",
+    "total_pages": 653,
+    "price": 100.0
+  }
+]
