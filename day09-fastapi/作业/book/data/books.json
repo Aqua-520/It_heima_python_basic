@@ -1,50 +1,66 @@
 [
-  {
-    "id": "N001",
-    "title": "Python入门",
-    "author": "龟叔",
-    "publisher": "人民大学出版社",
-    "total_pages": 561,
-    "price": 38.8
-  },
-  {
-    "id": "N002",
-    "title": "LangChain进阶",
-    "author": "利彭斯",
-    "publisher": "北京通讯出版社",
-    "total_pages": 342,
-    "price": 89.9
-  },
-  {
-    "id": "N003",
-    "title": "LangGraph",
-    "author": "王林",
-    "publisher": "浙江大学出版社",
-    "total_pages": 453,
-    "price": 69.9
-  },
-  {
-    "id": "N004",
-    "title": "Agent Skills实战",
-    "author": "虎咆",
-    "publisher": "教育出版社",
-    "total_pages": 439,
-    "price": 59.8
-  },
-  {
-    "id": "N005",
-    "title": "MCP-Servers指南",
-    "author": "韩立",
-    "publisher": "国家图书出版社",
-    "total_pages": 328,
-    "price": 65.5
-  },
-  {
-    "id": "N006",
-    "title": "C++从入门到大神",
-    "author": "李慕婉",
-    "publisher": "清华大学出版社",
-    "total_pages": 653,
-    "price": 100.0
-  }
+    {
+        "id": "N001",
+        "title": "Python入门",
+        "author": "龟叔",
+        "publisher": "人民大学出版社",
+        "total_pages": 561,
+        "price": 38.8
+    },
+    {
+        "id": "N002",
+        "title": "LangChain进阶",
+        "author": "利彭斯",
+        "publisher": "北京通讯出版社",
+        "total_pages": 342,
+        "price": 89.9
+    },
+    {
+        "id": "N003",
+        "title": "LangGraph",
+        "author": "王林",
+        "publisher": "浙江大学出版社",
+        "total_pages": 453,
+        "price": 69.9
+    },
+    {
+        "id": "N004",
+        "title": "高粱",
+        "author": "高粱市传奇人物",
+        "publisher": "岗山出版",
+        "total_pages": 111,
+        "price": 111.0
+    },
+    {
+        "id": "N005",
+        "title": "我是你汪哥",
+        "author": "黄二哥",
+        "publisher": "重庆几把大学出版社",
+        "total_pages": 9999,
+        "price": 32.99
+    },
+    {
+        "id": "N006",
+        "title": "流浪地球",
+        "author": "王传志",
+        "publisher": "东京出版社",
+        "total_pages": 21398,
+        "price": 79.99
+    },
+    {
+        "id": "N007",
+        "title": "亲热天堂",
+        "author": "自来也",
+        "publisher": "火影忍者出版社",
+        "total_pages": 500,
+        "price": 520.99
+    },
+    {
+        "id": "N111",
+        "title": "张家辉",
+        "author": "城西国际大学",
+        "publisher": "千叶大学",
+        "total_pages": 1111,
+        "price": 123.0
+    }
 ]
