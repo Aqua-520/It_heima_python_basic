@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Black">
-    <option name="sdkName" value="uv (python_basic)" />
+    <option name="sdkName" value="uv (python全栈开发基础)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="uv (It_heima_python_basic)" project-jdk-type="Python SDK" />
 </project>

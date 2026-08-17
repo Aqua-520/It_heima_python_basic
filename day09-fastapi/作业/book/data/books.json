@@ -32,14 +32,6 @@
         "price": 111.0
     },
     {
-        "id": "N005",
-        "title": "我是你汪哥",
-        "author": "黄二哥",
-        "publisher": "重庆几把大学出版社",
-        "total_pages": 9999,
-        "price": 32.99
-    },
-    {
         "id": "N006",
         "title": "流浪地球",
         "author": "王传志",
